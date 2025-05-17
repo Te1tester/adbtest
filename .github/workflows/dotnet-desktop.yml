@@ -19,12 +19,14 @@ jobs:
     - name: Build
       run: dotnet build AdbWrapper.csproj --configuration Release --no-restore
     - name: Publish
-      run: dotnet publish AdbWrapper.csproj -c Release -o ./publish --self-contained true -r win-x64
+      run: dotnet publish AdbWrapper.csproj -c Release -o ./publish --self-contained false
     - name: List publish directory
       run: dir ./publish
-    - name: Upload artifact
+    - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: AdbWrapperExe
-        path: ./publish/AdbWrapper.exe
+        name: AdbWrapperArtifacts
+        path: |
+          ./publish/AdbWrapper.exe
+          ./publish/AdbWrapper.dll
         if-no-files-found: error
