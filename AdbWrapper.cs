@@ -5,7 +5,7 @@ using System.IO;
 class AdbWrapper {
     static void Main(string[] args) {
         string logLine = $"{DateTime.Now}: adb {string.Join(" ", args)}";
-        File.AppendAllText("C:\\jeb_adb_log.txt", logLine + Environment.NewLine);
+        File.AppendAllText("C:\\android\\platform-tools\\log\\adb_log.txt", logLine + Environment.NewLine);
 
         Process adb = new Process();
         adb.StartInfo.FileName = "adb_real.exe";
