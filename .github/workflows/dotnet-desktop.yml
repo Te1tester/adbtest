@@ -28,3 +28,4 @@ jobs:
         name: AdbWrapperExe
         path: ./publish/AdbWrapper.exe
         if-no-files-found: error
+
